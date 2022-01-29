@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$.ajax({
+			url:"JsonTest1.json",
+			success:function(data){
+				alert("처리 완료!");
+				//alert(data);
+				//console.log(data);
+				$('body').append(data.name + "/" + data.age + "/" + data.gender);
+			}
+		});
+		
+		
+		
+		$.getJSON('JsonTest1.json',function(data){
+			
+			//$('body').append(data.name + "/" + data.age + "/" + data.gender);
+			$.each(data,function(key,value){
+				$('body').append(key+":"+value+"<br>");
+			});
+		
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+	});
+</script>
+</head>
+<body>
+	<h1>WebContetn/jq2/JsonTest1.html</h1>
+
+	
+</body>
+</html>

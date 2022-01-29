@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		// ajax 사용해서 person.xml 데이터를 가져오기
+		//$.ajax('person.xml');
+		$.ajax({
+			url:'person.xml',
+			success:function(data){
+				alert("비동기 방식 처리 완료!");
+				//alert(data);
+				console.log(data);
+				// ajax 처리를 통해서 가져온 데이터(xml값)
+				
+				
+				$(data).find('person').each(function(){
+					
+					var name = $(this).find('name').text();
+					//alert("이름 : " + name);
+					$('body').append("<h2>이름"+name+"</h2>");
+					
+				});
+				
+				$.ajax("https://fs.jtbc.joins.com//RSS/sports.xml",{
+					success:function(data){
+						
+						$(data).find('item').each(function(){
+							
+							var title = $(this).find('title').text();
+							var link = $(this).find('link').text();
+							//alert("이름 : " + name);
+							$('body').append("<h2><a href='"+link+"'>제목: "+title+"</a></h2>");
+						
+						});	
+					}
+				});
+				
+				
+				
+			}
+		});
+		
+		
+	});
+</script>
+</head>
+<body>
+	<h1>WebContent/jq2/ajaxXml.html</h1>
+	
+	
+</body>
+</html>

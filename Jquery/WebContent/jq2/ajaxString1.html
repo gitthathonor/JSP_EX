@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//alert("1234");
+		// 비동기방식(화면전환없이 )으로 페이지 이동
+		$.ajax('string1.jsp',{
+			success: function(data) {
+				//alert("성공!");
+				//alert(data);
+				$('td').append(data);
+			}
+		});
+		
+		//alert("5678");
+	
+	});
+	
+</script>
+</head>
+<body>
+	<h1>WebContent/jq2/ajaxString1.html</h1>
+	
+	<table border="1">
+		<tr>
+			<td></td>
+		</tr>
+	</table>
+	
+	
+	
+</body>
+</html>

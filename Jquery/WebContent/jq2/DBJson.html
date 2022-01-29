@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$.getJSON('DBJsonPro.jsp',function(data){
+			$.each(data,function(idx, item){
+				
+				$('body').append(idx+" / "+item.name+" / "+item.id+" / "+item.email+"<br>");
+			});	
+		});	
+		
+	});
+</script>
+
+</head>
+<body>
+	<h1>DBJson.html</h1>
+	
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//JsonTest2.json 파일에서 정보를 가져와서 처리
+		$.getJSON('JsonTest2.json',function(obj){
+			//console.log(obj);
+			//$.each(obj);
+			$(obj).each(function(idx, item){
+				alert(idx+" : "+item.name+"/"+item.gender+"/"+item.age);
+			$('body').append(idx+" : "+item.name+"/"+item.gender+"/"+item.age+"<br>");
+				
+			
+			});
+		
+		});				
+	});
+</script>
+
+</head>
+<body>
+	<h1>WebContent/jq2/JsonTest2.html</h1>
+
+
+</body>
+</html>
