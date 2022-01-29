@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	//중첩 for문 (이중 for문)
+	// : out-for문 한바퀴(1증가)할 때, in-for문은 처음부터 끝까지 실행
+	
+	
+	//for(초기식; 조건식; 증감식) { //시침
+	//	반복코드 
+	//	for(초기식; 조건식; 증감식) { //분침
+	//		반복코드
+	//	}
+	//}
+	
+	 // 1시 -> 2시 
+	   for(var h = 1;h<=2;h++){
+		  // document.write(h+"시 ");	
+		   for(var m=0;m<=60;m++){
+			   document.write(h+"시"+m+"분 <br>");
+		   }
+	   }
+	
+	
+	
+	//구구단 출력(2단~9단)
+	//[2단]
+	//2 * 1 =2
+	//2 * 2 = 4
+	//.....
+	//[9단]
+	//9 * 1 = 9
+	//...
+	//9 * 9 = 81
+	
+	//var dan = 2;
+	/* for(var dan = 2; dan<=9; dan++) {
+		document.write("["+dan+"단]<br>");
+		for(var i=1; i<=9; i++) {
+			document.write(dan+" * "+i+" = "+(dan*i)+"<br>");
+		}
+	} */
+	
+	/* for(var i=0; i<=9; i++) {
+		for(var j=2; j<=9; j++) {
+			if(i=0) {
+				document.write("["+j+"단]");
+			} else {
+				break;
+			}
+		}
+		for(var k=2; k=9; k++) {
+			document.write((i+1)+"*"+k+"="+(i*k)+" ");
+		}
+	} */
+	/* for(var dan=2; dan<=9; dan++) {
+		document.write(" ["+dan+"단] ");
+	}
+	document.write("<br>"); */
+	
+	
+	
+	for(var i=0; i<=9; i++) {
+			for(var dan=2; dan<=9; dan++) {
+				if(i==0){
+					document.write(" ["+dan+"단] ");
+				} else {
+					document.write(dan+" * "+i+" = "+(dan*i)+" ");
+				}
+			}
+			document.write("<br>");
+		}
+	
+	
+	
+	
+	
+	//테이블 -> 반복문을 사용
+	
+	//document.write("<table border='1'>"+"<tr>"+"<td>"+1+"</td>"+"<td>"+2+"</td>"+"<td>"+3+"</td>"+"</tr>"+"<tr>"+"<td>"+1+"</td>"+"<td>"+2+"</td>"+"<td>"+3+"</td>"+"</tr>"+"</table>");
+	var tag = "<table border='1'>";
+	var name = "홍길동"
+	
+	for(var r=1; r<=2; r++) {    //tr
+		
+		tag += "<tr>";
+		
+		for(var d=1; d<=3; d++) {  //td
+			//document.write("td");
+			tag += "<td>"+name+"</td>";
+			
+			//tag += "<td>";
+			//tag += d;
+			//tag += "</td>";
+		}
+		//document.write("<br>");
+		tag += "</tr>";
+	}
+	
+	tag += "</table>";
+	
+	document.write(tag);
+	
+	//tag = "100";
+	//tag += "A";
+	//tag + tag + "A";  => "100A"
+	
+	//tag = "<table>";
+	//tag += "<tr></tr>";
+	//tag = tag + "<tr></tr>; => "<table> <tr></tr>";
+	
+	var num=1;
+while(num++<=10) {
+   document.write(num+" ");
+}
+
+num=1;
+while(++num<=10) {
+   document.write(num+" ");
+}
+	
+	
+	
+	</script>
+</head>
+<body>
+	<h1>WebContent/js1/Test8.html</h1>
+	
+	<table border="1">
+		<tr>
+			<td>1</td> <td>2</td> <td>3</td>
+		</tr>
+		<tr>
+			<td>1</td> <td>3</td> <td>3</td>
+		</tr>
+	</table>
+	
+	
+	
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	//선택문(분기문)
+	
+	//switch-case문
+	/* switch (정수식, 문자) {
+	case value:
+		실행할 코드
+		[break;]
+	case value:
+		실행할 코드
+		[break;]
+
+
+	default:
+		break;
+	} */
+	
+	
+	
+	//switch-case문이 종료되는 경우
+	//1. 처음부터 끝까지 실행된 경우 
+	//2. defalut문이 실행된 경우
+	//3. break문을 만나는 경우
+	//case문 실행후 break문이 없는 경우 다음 break문을 찾을 때까지
+	//모든 코드를 실행합니다. (아예 없으면 1번처럼 끝난다.)
+	
+	/* var num = 10;
+	
+	switch (num) {
+	case 10 :
+		document.write("10!!");
+		//break;
+	case 9 :
+		document.write("9!!");
+		//break;
+	case 8 :
+		document.write("8!!");
+		//break;
+	case 7 :
+		document.write("7!!");
+		break;
+	default:
+		document.write("그외!!");
+	} */
+	
+	
+	var score = prompt("학생의 점수를 입력하세요");
+	
+	alert("계산 결과 : " + Math.floor(score/10));
+	
+	var tmp = Math.floor(score/10);
+	var grade = "";
+	
+	switch (tmp) {
+	case 10: //100
+		//documnet.write("A");
+		//break;
+	case 9:
+		//documnet.write("A");
+		grade = "A";
+		break;
+		 //99~90 //A등급을 출력한다.
+	case 8:
+		grade = "B";
+		break;
+		 //89~80
+	case 7:
+		grade = "C";
+		break;
+		 //79~70
+	case 6:
+		grade = "D";
+		break;
+		 //69~60
+	default:	
+		grade = "F";
+		break;
+	} //switch 끝
+	document.write(grade);
+	
+	
+	
+	
+	 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</script>
+</head>
+<body>
+
+
+
+</body>
+</html>

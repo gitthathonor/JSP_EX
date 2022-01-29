@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	//브라우저 객체 모델(브라우저에 내장되어 있는 객체)
+	//						window
+	//	document / screen / location / history / navigator
+	//<a><input>
+	
+	// => 계층구조로 구현되어있음.
+	
+	document.write(" 출력! ");
+	window.document.write(" 출력2222 ");
+	// => 모든 BOM은 window객체를 포함하고 있음. (window객체를 생략)
+	
+	//alert("메세지!");
+	window.alert("메세지!");
+	
+	//window 객체 => 속성, 동작
+	
+	//alert(window.status);
+	//alert(window.opener);
+	//alert(window.name);
+	
+	//window.open("주소"(url)", "창이름","필요옵션");
+	//=>브라우저 새창 열기(팝업창)
+	//window.open("http://www.itwillbs.co.kr","ITWILL","width=400,height=500"); 
+	//window.open("Test1.html","ITWILL","width=400, height=500");
+	
+	//버튼 1 개 생성, 버튼 클릭시 새 창을 js1/Test1.html 열기
+	
+	/* document.write("<input id='td1' type='button' value='버튼'>");
+	
+	document.getElementById('td1').onclick = function() {
+		window.open("js1/Test1.html","ITWILL","width=400, height=500");
+	};
+	 */
+	function myWinOpen() {
+		 window.open('Test7_1.html','','width=400,height=500');
+	 }
+	 
+	 
+	//window.close();
+	//이벤트가 발생한 창을 종료
+	
+	//Test7_1.html 파일을 생성해서, 버튼 1개 생성 => 창종료 버튼 구현
+	
+	
+	
+	</script>
+</head>
+<body>
+	<h1>WebContent/js2/Test7.html</h1>
+		<h2>브라우저 객체 모델</h2>
+		
+		<!-- 태그에 직접 이벤트를 등록 할 경우 자바스크립트의 함수를 실행가능!  -->
+		<input type="button" value="새창열기" onclick="window.open('../js1/Test1.html');"> <br>
+		
+		<input type="button" value="새창열기2" onclick="myWinOpen();"> <br>
+		
+		<input type="button" value="창닫기" onclick="window.close();">
+		
+</body>
+</html>

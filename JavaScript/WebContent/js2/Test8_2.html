@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	
+	
+	</script>
+</head>
+<body>
+	<h1>WebContent/js2/Test8_2.html</h1>
+
+	<!-- 뒤로가기 버튼 생성  -->
+	<input type="button" value="뒤로가기 (8_1)" onclick="history.back();"> <br>
+	
+	<!-- go(+) : 앞으로 이동, go(-) : 뒤로 이동  -->
+	<input type="button" value="뒤로가기 go(8_1)" onclick="history.go(-1);"> <br>
+	<input type="button" value="뒤로가기 go(8)" onclick="history.go(-2);"> <br>
+	
+	<h2>screen 객체</h2>
+	
+	<!-- 사용자의 모디터 정보를 제공하는 객체  -->
+	
+	<script type="text/javascript">
+		document.write("w : "+screen.width + "<br>");
+		document.write("h : "+screen.height + "<br>");
+		document.write(screen.availWidth+"<br>");
+		document.write(screen.availHeight+"<br>");
+		document.write(screen.colorDepth+"<br>");
+		
+		
+		
+	</script>
+	
+	<h2>navigator 객체</h2>
+	<!-- 현재 방문자의 브라우저 정보 및 OS(운영체제)의 정보를 제공  -->
+	<script type="text/javascript">
+		document.write(navigator.userAgent+"<br>");
+		document.write(navigator.appCodeName+"<br>");
+		document.write(navigator.appName+"<br>");
+		document.write(navigator.appVersion+"<br>");
+		document.write(navigator.language+"<br>");
+		document.write(navigator.product+"<br>");
+		document.write(navigator.platform+"<br>");
+		
+	
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//문장 - 실행문  - 일반문
+	//             제어문 - 분기문(if/else/else if/switch)                       
+	//                  - 반복문(for/while/do-while)
+	//
+	//    - 비실행문 : 주석문	
+		
+		
+		
+	//제어문 - 분기문(if)
+	// if(조건문) {
+	//	조건이 참일 때, 실행하는 코드
+	//}
+
+	//변수 안에 들어있는 값이 양수인지 판단
+	var i = 100;
+	if(i > 0) {
+		document.write("양수 <br>");
+	} else {
+		document.write("음수");
+	}
+	
+	
+	//Boolean() => 처리결과와 동일 //0, null, undefined 는 false
+	if(0) {
+		document.write("실행1<br>");
+	}
+	if(1) {
+		document.write("실행2<br>");
+	}
+	if('A') {
+		document.write("실행3<br>");
+	}
+	if(null) {
+		document.write("실행4<br>");
+	}
+	
+	var name = prompt("이름을 입력하시오.", "");
+	
+	
+	//사용자가 이름을 입력시
+	//"ooo"님 안녕하세요~!
+	//document.write(name);
+	//alert(name);
+	/* if(name != "") {
+		alert(name+"님 안녕하세요~!");
+		document.write(name+"님 안녕하세요~! <br>");
+	} */
+	
+	
+	if(name) {
+		alert(name+"님 안녕하세요~!");
+		document.write(name+"님 안녕하세요~! <br>");
+	}
+	
+	
+	//if(조건문) {
+	//	조건문 참 실행하는 코드
+	//} else {
+	//	조건문 거짓 실행하는 코드
+	//}
+	
+	
+	// i의 값이 홀/짝수 판단
+	
+	var i2 = 100;
+	document.write((i2%2 == 0)? "짝수":"홀수");
+	
+	
+	//document.write(name+"님 안녕하세요~!");
+	
+	
+	//else if문
+	
+	//if(조건문) {
+	//} else if(조건문) {
+ 	//} else if(조건문) {
+ 	//} else {
+ 	//}
+	
+	//사용자에게 "현재 월의 정보를 입력받기" ==> prompt();
+	//3~5 봄, 6~8 여름, 9~11 가을, 12~2 겨울
+	//var season = prompt("계절을 입력하세요", "");	
+	
+	//if(season=="봄") {
+	//	document.write(season+"은 따뜻하다");
+	//} else if(season=="여름") {
+	//	document.write(season+"은 덥다");
+	//} else if(season=="가을") {
+	//	document.write(season+"은 시원하다");
+	//} else if(season=="겨울") {
+	//	document.write(season+"은 춥다");
+	//} else {
+	//	document.write("계절을 다시 입력해주세요");
+	//}
+	
+	
+	/* var month = prompt("현재 월의 정보를 입력하세요");
+	
+	if(3 <= month && month <= 5) {
+		alert('봄!');
+	}
+	else if(6 <= month && month <= 8) {
+		alert('여름!');
+	}
+	else if(9 <= month && month <= 11) {
+		alert('가을!');
+	}
+	else if(12 == month || (1<=month && month <= 2)) {
+		alert('겨울!');
+	} else {
+		alert('올바른 월을 입력하세요~!');
+	} */
+	
+	// 
+	
+	
+	
+	//학생의 점수를 입력받아서 - 학점을 계산하는 프로그램 생성
+	//100~90 : A, 89~80 : B, 79~70 : C, 69~60 : D, 59~0 : F
+	
+	//"학생점수 : 00점 (A)"
+	
+	
+	//1. 학생점수 입력받기(prompt)
+	//var score = prompt("학생의 점수는");
+	
+	//2. 각 등급별 구분하기 & 출력
+	
+	/* if (90<=score && score<=100) {
+		document.write("<br>학생점수 : "+score+"점 (A)");
+	} else if(80<=score && score<=89) {
+		document.write("<br>학생점수 : "+score+"점 (B)");
+	} else if(70<=score && score<=79) {
+		document.write("<br>학생점수 : "+score+"점 (C)");
+	} else if(60<=score && score<=69) {
+		document.write("<br>학생점수 : "+score+"점 (D)");
+	} else if(0<=score && score<=59) {
+		document.write("<br>학생점수 : "+score+"점 (F)");
+	} else {
+		document.write("<br>학생점수 : 오류발생! 올바른 점수를 입력하시오!");
+	} */
+	
+	//3. 등급 출력
+	
+	//제어문은 중첩 가능
+	/* if(조건문){
+		if(조건문) {
+			if(조건문) {
+				...
+			}
+		}
+	} */
+
+	
+	//사용자의 ID/PW를 입력받기
+	//ID/PW를 체크해서 로그인 여부를 판단
+	//- 회원정보 ID : [itwill]/ pw : [1234]
+	
+	
+	//1. ID/pw를 입력받는다.
+	//2. ID가 동일한지 체크한다.
+	//	o 3. 비밀번호가 동일한지 체크한다.
+	//		o 4. 본인확인 성공(로그인 완료),
+	//		x 5. 로그인 실패(비번 오류)
+	//	x : 비회원으로 처리한다.
+	/* var ID = prompt("ID를 입력하세요");
+	var pw = prompt("password를 입력하세요");
+	
+	if(ID == "itwill") {
+		if(pw == 1234) {
+			alert("로그인 되었습니다.");
+		} else {
+			alert("비밀번호가 맞지 않습니다.");
+		}
+	} else {
+		alert("ID를 다시 입력해주세요");
+	} */
+	
+	var userID = "itwill";
+	var userPW = "1234";
+	
+	var inputID = prompt("아이디를 입력해주세요");
+	var inputPW = prompt("비밀번호를 입력해주세요");
+	
+	if(userID == inputID) {
+		if(userPW == inputPW) {
+			alert("로그인 성공!");
+		} else {
+			alert("로그인 실패!/ 비밀번호가 다릅니다.");
+		}
+	} else {
+		alert("아이디가 맞지 않습니다.");
+	}
+	
+	//if(userID == inputID) && (userPW == inputPW) {
+		//로그인 성공
+	} else {
+		//로그인 실패
+	}
+
+	
+	
+	
+	
+	
+	
+</script>
+</head>
+<body>
+	<h1>WebContent/js1/Test4.html</h1>
+
+</body>
+</html>

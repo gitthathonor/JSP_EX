@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	//자바스크립트는 객체기반의 프로그래밍 언어
+	//객체? 눈앞에 보이는 모든 대상들
+	//코드로 표현할 수 있도록 기능과 속성을 정의 => 객체 모델링/추상화
+	
+	//'모니터' 객체 - 속성(특징) : 색상, 모양, 제조사, 가격, 크기... => 명사(변수)
+	//           - 기능(동작) : on/off, 밝기조절, 명암조절... => 동사(함수)
+	
+	//'학생' 객체  - 속성 : 이름, 전화번호, 학번, 성별,주소,....=> 명사(변수)
+	//		    - 기능 : 공부하기, 게임하기, 밥먹기, 커피마시기, 휴식하기...=> 동사(함수) => 메서드
+	
+	
+	// TV 객체 생성
+	// 속성 : 크기, 가격, 컬러, 브랜드...
+	// 기능 : on/off, vol up/down
+	
+	//var LGTV = new TV();
+	
+	var LGTV = new Object(); //객체 생성
+	//new 연산자 : 객체를 생성하는 연산자, 객체를 메모리에 올린다.(인스턴스화)
+	
+	
+	
+	LGTV.color = "black";
+	LGTV.price = 300;
+	LGTV.size = 80;
+	
+	document.write(" 티비의 크기는 : "+LGTV.size+"인치");
+	
+	
+	/* function turnOff() {
+		document.write("전원을 끕니다.");
+	}
+	
+	turnOff(); */
+	
+	var SamsungTV = new Object();
+	//티비를 껏다/켰다 하는 동작을 표현하시오.
+	
+	//*기본 티비는 꺼져있음
+	//*전원버튼을 사용하여 티비를 켤 수 있음
+	//*동일한 버튼을 사용하여 티비를 끌 수 있음
+	
+	SamsungTV.power = false;
+	
+	function pushPower() {
+		if(SamsungTV.power) { //켜짐
+			SamsungTV.power = false;
+		} else { //꺼짐
+			SamsungTV.power = true;
+		}
+	}
+	
+	document.write(SamsungTV.power);
+	
+	document.write("전원 : "+ ((SamsungTV.power)? "켜짐":"꺼짐"));
+	pushPower();
+	document.write("전원 : "+ ((SamsungTV.power)? "켜짐":"꺼짐"));
+	pushPower();
+	document.write("전원 : "+ ((SamsungTV.power)? "켜짐":"꺼짐"));
+	
+	//자바스크립트에서 사용되는 객체
+	// 1) 내장 객체 : 필요에 따라서 생성해서 사용가능(String, Date, Math, Array)
+	// 2) 브라우저 객체 모델 (BOM) : 브라우저를 객체로 표현해서 사용가능한 객체
+	// window, screen, location, history, navigator,document...
+	
+	// 3) 문서 객체 모델 (DOM) : HTML문서를 포현한 객체 (별로 볼 필요 없다)
+	
+	
+	
+	document.write("<hr>");
+	//내장객체 - 날짜 정보객체 (Date)
+	//날짜 정보 저장객체 생성 - 시스템의 시간정보를 가져와서 사용
+	
+	var t = new Date();  //현재 시간정보
+	document.write(t);
+	
+	document.write("<hr>");
+	var t2 = new Date(2021,9,28); // 연, 월-1, 일 //0월~11월
+	document.write(t2);
+	
+	document.write("<hr>");
+	
+	var t3 = new Date(2021,9,28,17,09,00); //연, 월-1, 일, 시, 분, 초
+	document.write(t3);
+	
+	document.write("<hr>");
+	
+	var t4 = new Date("2021/10/28"); //연, 월, 일
+	document.write(t4);
+	
+	document.write("<hr>");
+	//"2021년 10월 28일" 출력!
+	document.write(t.getFullYear()+"년");
+	document.write((t.getMonth()+1)+"월");
+	//document.write(t.getDay()+"일"); //0~6 일~토 => 요일정보를 출력해주는 함수 생성
+	document.write(t.getDate()+"일");
+	
+	function changeDay(day) {
+		switch(day) {
+		case 0:
+			document.write("일요일");
+			break;
+		case 1:
+			document.write("월요일");
+			break;
+		case 2:
+			document.write("화요일");
+			break;
+		case 3:
+			document.write("수요일");
+			break;
+		case 4:
+			document.write("목요일");
+			break;
+		case 5:
+			document.write("금요일");
+			break;
+		case 6:
+			document.write("토요일");
+			break;
+		}
+	}  //changeDay();
+	
+	changeDay(t.getDay());
+	
+	document.write("<hr>");
+	//2002.5.31 => 요일은 무슨 요일일까요?
+			
+			
+	var day = new Date(2002,4,31);
+	
+	changeDay(day.getDay());
+	
+	
+	//D-DAY(ms 밀리세컨드) :특정날짜 - 현재날짜
+	//1s = 1000ms
+	//1m = 1000ms * 60
+	//1h = 1000ms * 60 * 60
+	//1day = 1000ms * 60 * 60 * 24
+	
+	
+	
+	var today = new Date();
+	document.write("<br>"+(today - day));
+	
+	//2021.12.31 까지 남은 일수
+	
+	var day1 = new Date(2021,11,31);
+	var today1 = new Date();
+	
+	var dday = (day1 - today1)/(1000*3600*24);
+	
+	document.write("<br>"+Math.floor(dday+1));
+	document.write("<br>"+Math.ceil(dday));
+	
+	//Math.ceil() : 소수점 올림 함수
+	
+	
+	
+	//
+			
+	
+	
+	
+	
+	</script>
+</head>
+<body>
+	<h1>WebContent/js2/Test3.html</h1>
+		<h1>객체(Object)</h1>
+
+</body>
+</html>

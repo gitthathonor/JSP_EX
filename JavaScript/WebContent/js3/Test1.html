@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//window - document - form 태그(객체)
+	//사용자로부터 정보를 입력/ 정보를 전달하기 위한 목적으로 사용되는 태그
+	
+	//(window.)document.forms[0].속성
+	//(window.)document.폼이름.속성
+	
+	function fun1() {
+		//속성 : action, name, method
+		alert('name : '+document.forms[0].name);
+		alert('action : '+document.f1.action);
+		alert('method : '+document.f1.method);
+	}
+	
+	function fun2() {
+		document.forms[0].action = "itwill.html";
+		document.f1.method = "post";
+		
+		//페이지 정보 전달 동작  submit() // submit버튼이 아니라 그냥 button에서 submit을 수행하기 위해서는 submit()메소드를 사용해주어야한다.
+		document.f1.submit();
+	}
+	
+	//submit 버튼을 클릭시 -> get / kakao.html //***submit은 onclick을 사용하는 것 지양 -> 정확한 처리가 어려움 //form태그에서 onsubmit을 사용
+	
+	function fun3() {
+		document.f1.action = "kakao.html";
+		document.f1.method = "get";
+	}
+	
+	
+
+</script>
+</head>
+<body>
+	<h1>WebContetn/js3/Test1.html</h1>
+	<!-- 폼태그 테두리 작성  -->
+	<fieldset>
+		<legend>폼태그 제목</legend>
+		<!-- action="정보를 전달할 페이지주소" 
+		-> action="" 속성값이 없을 경우 자신의 페이지를 호출
+		name="폼태그를 구분하기 위한 이름"
+		method="get/post" : 폼태그의 정보를 전달하는 방식
+		
+		-->
+		
+		<!-- submit시 이벤트 처리할 때는 onclick 대신 form태그에서 onsubmit을 사용  -->
+		<form action="Test1.html" name="f1" method="get" onsubmit="fun3();">
+			<input type="text" name="id"> <br>
+			<input type="password" name="pass"><br>
+			
+			
+			
+			
+			<input type="submit" value="전송!">  <!-- 폼태그 안에 있는 정보를 전달 -->
+		
+		</form>
+	</fieldset>
+	
+	<!-- 버튼 클릭시 폼태그의 속성 전부를 출력 alert()  -->
+	<input type="button" value="폼태그의 속성" onclick="fun1()"> <br>
+	
+	<!-- 버튼 1개 생성 폼태그의 속성정보를 변경
+		itwill.html 페이지로 post방식을 사용해서 정보 전달  -->
+	
+
+	<input type="button" value="폼태그 속성정보 변경" onclick="fun2()"> <br>
+	
+	
+	
+	
+	<hr>
+	
+	<h2>페이지 정보전달방식</h2>
+		=> 폼태그에 있는 데이터(input태그)를 전달하기 위한 형태
+	<h3> GET방식 /get() </h3>
+		1) 전송할 데이터(파라미터)를 URL정보에 붙여서 전송o <br>
+		=>주소?파라미터명=값&파라미터=값 (외부에서 확인 o) <br>
+		2) 길이의 제한이 있음(256byte) <br>
+		3) 주소줄에 데이터를 담아서 전달
+		4) 데이터 처리 속도가 빠름 why? 길이의 제한과 관련, 어차피 post와 속도 차이는 엄청 나진 않는다.
+		5) 모든데이터가 주소에 보임 => 보안적인 문제발생
+		6) 대표적인 겟방식은 일반적인 정보창
+		
+	<h3> POST방식/ post() </h3>
+		1) 전송할 데이터(파라미터)를 URL정보에 붙여서 전송x <br>
+		=> BODY에 담아서 전달(외부에서 확인 x) <br>
+		2) 길이의 제한이 없음
+		3) 데이터를 body에 담아서 전달, body에 대해서는 추후 jsp를 다룰 때 다시 설명
+		4) 데이터 처리 속도가 느림
+		5) 모든 데이터가 주소에 x => 보안적으로 우수함
+		6) 대표적인 포스트 방식은 로그인
+	
+	
+	
+</body>
+</html>

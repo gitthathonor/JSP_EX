@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript"> 
+	//window-document-form-input(text) 객체
+	
+	//(window.)document.폼이름.태그명.속성    //태그명은 name에 있는 값을 말하는 것이다.
+	
+	function fun1() { //<input type="text" name="id"> 태그의 속성을 체크&확인
+		//[type, name,value] 속성
+		//alert(document.fr.id.type);a
+		//alert(document.fr.pw.type);
+		//alert(document.fr.pw.name);
+		alert(document.fr.id.value);
+		
+	}
+	
+	function fun2(name) {
+		//id태그의 value값을 변경
+		document.fr.id.value="1000";
+		//id태그의 동작을 수행
+		document.fr.id.focus();
+		//document.fr.id.blur();
+		//document.fr.id.select();
+	}
+
+	
+	//check()/ 버튼 클릭시 id값이 입력이 되었는지 아닌지를 체크
+	function check1() {
+		//alert(document.fr.id.value);
+		//입력이 없다 == ""
+		//if(document.fr.id.value=="") {
+		if(document.fr.id.value.length<=5){
+			alert("올바른 아이디 정보를 입력하세요! ");
+			document.fr.id.focus();
+			return; //함수의 종료
+			
+		} else {
+			alert("사용자 ID : " + document.fr.id.value);
+		}
+		
+		//비밀번호, 주민번호, 메세지 정보를 모두 입력시에만 action 페이지로 정보전달
+		if(document.fr.pw.value.length<=0) {
+			alert("올바른 비밀번호를 입력하세요! ");
+			document.fr.pw.focus();
+			return;
+			
+		}
+		if(document.fr.ju1.value=="") {
+			alert("올바른 주민번호를 입력하세요! ");
+			document.fr.ju1.focus();
+			return;
+			
+		}
+		if(document.fr.ju2.value=="") {
+			alert("올바른 주민번호를 입력하세요! ");
+			document.fr.ju2.focus();
+			return;
+			
+		}
+		if(document.fr.msg.value.length<=0) {
+			alert("올바른 메세지를 입력하세요! ");
+			document.fr.msg.focus();
+			return;	
+		}
+		
+		//정보전달 submit()
+		document.fr.submit();
+	}
+	
+	function check2() {
+		
+		if(document.fr.id.value.length<=5){
+			alert("올바른 아이디 정보를 입력하세요! ");
+			document.fr.id.focus();
+			return false; //함수의 종료
+			
+		} else {
+			alert("사용자 ID : " + document.fr.id.value);
+		}
+		
+		//비밀번호, 주민번호, 메세지 정보를 모두 입력시에만 action 페이지로 정보전달
+		if(document.fr.pw.value.length<=0) {
+			alert("올바른 비밀번호를 입력하세요! ");
+			document.fr.pw.focus();
+			return false;
+			
+		}
+		if(document.fr.ju1.value=="") {
+			alert("올바른 주민번호를 입력하세요! ");
+			document.fr.ju1.focus();
+			return false;
+			
+		}
+		if(document.fr.ju2.value=="") {
+			alert("올바른 주민번호를 입력하세요! ");
+			document.fr.ju2.focus();
+			return false;
+			
+		}
+		if(document.fr.msg.value.length<=0) {
+			alert("올바른 메세지를 입력하세요! ");
+			document.fr.msg.focus();
+			return false;
+		}
+		
+		//정보전달 submit()
+		//document.fr.submit();
+	}
+	
+	
+	function fun3() {
+		//주민번호 앞자리의 길이가 6일때 
+		//뒷자리 입력하도록 진행
+		if(document.fr.ju1.value.length == 6) {
+			document.fr.ju2.focus();
+		}
+	}
+		
+	function fun4() {
+		if(document.fr.ju2.value.length == 7) {
+			document.fr.msg.focus();
+		}
+	}
+	
+
+	
+	
+	
+</script>
+</head>
+<body>
+	<h1>WebContent/js3/Test2.html</h1>
+	<h2>사용자 정보 입력태그</h2>
+	
+	<fieldset>													<!-- return false; -->
+		<form action="itwill.html" method="get" name="fr" onsubmit="return check2();">
+			<label>아이디 : </label>
+			<input type="text" name="id" value=""> <br>
+			
+			비밀번호 : <input type="password" name="pw" placeholder="비밀번호를 입력하시오."> <br>
+			
+			주민번호 : <input type="text" name="ju1" maxlength="6" onkeyup="fun3();"> - <input type="text" name="ju2" maxlength="7" onkeyup="fun4();"> <br>
+			
+			메세지 : <textarea rows="5" cols="50" name="msg"></textarea>
+			
+			<hr>
+			<input type="submit" value="전송">
+			<input type="reset" value="초기화">
+			<hr>
+			
+			<input type="button" value="태그의 속성값 확인" onclick="fun1();"> <br>
+			<input type="button" value="태그의 속성값 변경" onclick="fun2();"> <br>
+			
+			<input type="button" value="입력값 체크" onclick="check1();">
+			
+			
+			
+		</form>
+	</fieldset>
+</body>
+</html>

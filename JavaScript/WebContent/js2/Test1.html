@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	//데이터를 저장 => 변수(명사)
+	//함수(function)? 실행문을 저장가능한 형태(동사)
+	
+	
+	// - 함수의 선언
+	/* function 함수명() {
+		실행문1;
+		실행문2;
+		실행문3;
+		실행문4;
+	} */
+	
+	
+	// - 익명함수의 선언
+	//참조변수(reference) = function () {
+	//			실행문1;
+	//			실행문2;
+	//			실행문3;
+	//			실행문4;
+	//		}
+	
+	
+	 
+	//함수의 사용 : 함수명을 호출
+	//함수명();
+	// - 익명함수의 사용
+	// 	  참조변수();
+	//write, alert, prompt...
+	
+	
+	//"안녕하세요!"x 5번 출력(for)
+	
+	
+	for(i=1; i<=5; i++) {
+		document.write("안녕하세요@ <br>");
+	}
+	
+	document.write("<hr>");
+	
+	for(var i=1; i<=5; i++) {
+		document.write("안녕하세요! <br>");
+	}
+	
+	function Hello() {
+		for(var i=1; i<=5; i++) {
+			document.write("안녕하세요! <br>");
+		}
+	}
+	document.write("<hr>");
+	
+	//함수 호출
+	Hello();
+	Hello();
+	
+	// 익명함수 선언
+	var BYE = function() {
+		document.write("GoodBYE~! <br>");
+		document.write("GoodBYE~! <br>");
+		document.write("GoodBYE~! <br>");
+	}
+	
+	BYE();
+	
+	//함수
+	//매개변수 : 함수에 특정 정보를 전달하는 변수
+	
+	//function 함수명(매개변수1, ..., 매개변수n) {
+		
+	//}	//매개변수를 최대6개까지 쓰는게 좋다. 그 이상 쓰면 메서드의 성능이 떨어진다.
+	
+	// 함수 호출 : 매개변수의 갯수만큼 데이터를 입력
+	//함수명(데이터1, ..., 데이터n);
+	
+	
+	function callName(name) {
+		document.write("내 이름은"+name+"입니다. <br>");
+	}
+	
+	
+	//함수사용(호출)
+	callName("홍길동");
+	
+	callName("이순신");
+	
+	//showMyInfo(), 매개변수 3개(이름, 나이, 전화번호) 전달받아서
+	//화면에 출력하는 동작을 수행
+	
+	function showMyInfo(name, age, phoneNum) {
+		document.write("내 이름은 "+name+"입니다. <br>");
+		document.write("내 나이는 "+age+"세 입니다. <br>");
+		document.write("내 전화번호는 "+phoneNum+"입니다. <br>");
+	}
+	
+	showMyInfo("홍길동", 25, "010-0000-1111");
+	
+	//prompt("질문","");
+	
+	//함수의 선언(결과값 리턴)
+//	function 함수명() {
+//		실행코드;
+//		실행코드;
+//		실행코드;
+//		return 데이터;
+//	}
+	
+	
+	// 함수의 사용
+//	변수 = 함수명(); 
+	
+	// myFunction(숫자, 숫자) => 2개의 숫자 합을 출력
+	function myFunction(num1, num2) {
+		return num1+num2;
+	}
+	
+	var sum = myFunction(3, 5);
+	
+	document.write("합 : "+sum);
+	document.write("<hr>");
+	document.write("합  : "+myFunction(500,300));
+	
+	//함수 - 매개변수(파라미터) o - 리턴문 o/리턴문 x	
+	//함수 - 매개변수 x - 리턴문 o/리턴문 x	
+	
+	// * 리턴문 o => 데이터를 처리해서 결과를 돌려주겠다.(출력x)
+	// * 리턴문 x => 데이터를 처리 후 결과를 사용하겠다.(출력O)
+	
+	
+	//로그인 처리 로직 => ItwillLoginCheck() 함수 생성
+	//ID/PW 정보를 전달받아서 처리
+	// userID = "admin", userPW = "1234" / 동일시 로그인 성공!
+	//                                   / 아닌 경우 오류메세지 출력
+	
+	function ItwillLoginCheck() {
+		var userID = prompt("ID를 입력하세요","");
+		var userPW = prompt("PW를 입력하세요","");
+		
+		if(userID == "admin" && userPW == "1234") {
+			alert("로그인 성공!");
+		} else {
+			alert("오류 : 아이디나 비밀번호가 올바르지 않습니다.");
+		}
+	}
+	
+	//ItwillLoginCheck();
+	
+	/* function ItwillLoginCheck2(id,pw) {
+		var userID = "admin";
+		var userPW = "1234";
+		
+		if(id==userID) {
+			//회원
+			if(pw == userPW) {
+				
+			}
+		} else {
+			//비회원
+			alert("비회원 입니다!");
+		}
+	} //함수끝 */
+	
+	
+	//ItwillLoginCheck("admin", "12345");
+	//ItwillLoginCheck("admin", "1234");
+	
+	
+	//절대값을 계산하는 함수 myABS
+	//1개의 전달인자를 사용해서 결과를 리턴하는 함수로 구현
+	document.write("<hr>");
+	
+	function myABS(num) {
+		//1. if(num>=0) {
+		//	return num;
+		//} else {
+		//	return num * (-1);
+		//}
+		//2. if(num < 0) {
+		//	num = num* -1;
+		//}
+		//리턴
+		//3.
+		return (num<0)? -num:num;
+	}
+	
+ 	document.write("<hr>");
+ 	
+ 	document.write(myABS(1000)+"<br>");
+ 	var tmp = myABS(-2000);
+ 	
+ 	document.write(tmp);
+ 	
+ 	
+ 	//함수 안에 있는 return문
+ 	//*함수는 안에 들어있는 모든 코드를 실행하면 끝
+ 	//*함수 안에 return문이 있는 경우 실행후 끝(return문 이후의 코드는 실행x)
+ 	
+ 	// 함수() {
+ 	// 	return 데이터; => 값을 리턴
+ 	// }
+ 	
+ 	// 함수() {
+ 	// 	return; => 함수의 종료
+ 	// }
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+	
+	
+	
+	
+	
+	
+	</script>
+</head>
+<body>
+	<h1>WebContent/js2/Test1.html</h1>
+	<h1>함수(메서드)</h1>
+	
+	<input type="button" value="로그인" onclick="ItwillLoginCheck();">
+	
+
+</body>
+</html>

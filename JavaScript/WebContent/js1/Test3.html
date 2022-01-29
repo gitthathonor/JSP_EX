@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		//연산자
+		//1. 산술연산자 : + - * / %(나머지)
+		
+		//변수 2개 생성해서 각각 초기화
+		//-> 산술연산자의 결과를 출력
+		
+		var num1 = 5;
+		var num2 = 2;
+		
+		document.write("num1+num2 : "+(num1+num2)+"<br>");
+		document.write("num1-num2 : "+(num1-num2)+"<br>");
+		document.write("num1*num2 : "+(num1*num2)+"<br>");
+		document.write("num1/num2 : "+(num1/num2)+"<br>");
+		document.write("num1%num2 : "+(num1%num2));
+		
+		
+		//Q. 과일 150개를 포장하려한다.
+		//   포장상자는 한 박스에 5개씩 포장 가능
+		//   이때 모든 과일을 포장할 때 필요한 상자의 갯수는?
+		//   "필요한 상자의 갯수는 00개"		
+		
+		var fruit = 150;
+		var oneBox = 5;
+		var allBox = fruit/oneBox;
+		
+		document.write("<br>"+"필요한 상자의 갯수는 " + allBox + "개");
+		
+		
+		//943 -> 연산 ???? -> 900
+		//???? : -43
+		//모든 세자리 수에 적용
+		//777 -> ??? -> 700
+		// 693 -> ??? -> 600
+		
+		// * 구글링 가능
+		
+		var num = 257;
+		//document.write(num - num%100);
+		
+		document.write(Math.floor(num/100)*100+"<br>");
+		
+		
+		
+		//Q.  974 -> ??? -> 971
+		//??? 연산 수행 후 항상 끝자리만 1로 변경
+		document.write(Math.floor(num/10)*10+1);
+		
+		
+		//2. 대입 연산자  [ = ]
+		// A = B  => 오른쪽에서 왼쪽으로 연산이 실행
+		//데이터값을 변수에 저장
+		//복합 대입연산자 [ += -= *= /= %= ]
+		// A += B; <=> A = A + b; (누적 합연산)
+		
+		// num1/num2 변수 2개를 사용해서 복합대입연산을 확인(화면에 출력)
+		
+		var num1 = 100;
+		var num2 = 200;
+		
+		document.write("num1 : "+num1+"<br>");
+		document.write(" += : " +(num1+=num2)+"<br>");
+		document.write(" -= : " +(num1+=num2)+"<br>");
+		document.write(" *= : " +(num1+=num2)+"<br>");
+		document.write(" /= : " +(num1+=num2)+"<br>");
+		document.write(" %= : " +(num1+=num2)+"<br>");
+		
+		
+		//복합대입연산(누적합)을 사용하여 테이블을 출력
+		var tagValue = "";   //문자열 값을 대입하겠다고 초기화 시킴
+		tagValue += "<table border='1'>";
+		tagValue += "<tr>";
+		tagValue += "<td>"+num1+"</td><td>"+num2+"</td>";
+		tagValue += "</tr>";
+		tagValue += "</table>";
+		
+		document.write(tagValue);
+		
+		//3. 증감연산자(단항연산자)
+		//++A, A++, --A, A--
+		// => 변수의 값을 1증가/감소 시키는 연산
+		
+		var A = 100;
+		++A; //전위연산 : A값을 사용하기 전 1증가/감소
+		document.write(A+"<br>"); //101
+		A++; //후위연산 : A값을 사용하고, 1증가/감소
+		document.write(A+"<br>"); //102
+		
+		document.write(++A+"<br>"); //103
+		document.write(A++); //103 //
+		
+		
+		var A = 100;
+		A++;
+		A++;
+		A++;
+		A++;
+		document.write("A : " + (++A));
+		document.write("A : "+ (A-=5));
+		
+		//4. 비교연산자 : 연사의 결과를 boolean타입으로 리턴
+		//[ >, <, >=, >=, ==, !=, ===, !== ]
+		
+		num1 = 100;
+		num2 = "100";
+		
+		//데이터 타입의 형태 상관없이 값만 비교
+		document.write("<br>"+ (num1 == num2) + "<br>");
+		document.write("<br>"+ (num1 != num2) + "<br>");
+		
+		//데이터 타입의 형태와 값 둘다 비교
+		document.write("<br>"+ (num1 === num2) + "<br>");
+		document.write("<br>"+ (num1 !== num2) + "<br>");
+		
+		
+		//5. 논리 연산자
+		//[ &&(and연산), ||(or연산), !(not연산)]
+		
+		
+		
+		// (A && B)
+		// 논리표
+		// A    B     &&     ||    
+		//----------------------------- 
+		// T    T     T      T
+		// T    F     F      T 
+		// F    T     F      T
+		// F    F     F      F
+		
+		
+		// ( !A )
+		// A           !A 
+		//--------------------
+		// T            F
+		// F            T
+		
+		
+		/*	Java코드
+			String name = null;
+			(4 < 2) && (name.length == 4);  //f
+			
+			
+			(4 > 2) && (name.length == 4);  //f(x) 에러
+			
+		*/
+		
+		//6. 삼항(조건)연산자
+		//( (조건식)? 결과1(참일 때 실행코드):결과2(거짓일 때 실행코드) );
+		
+		//배우는 이유 : if문보다 훨씬 연산속도가 빨라서
+		
+		document.write(5 > 3? "큰값 : 5" : "큰값 : 3");
+		
+		//num1 = -100; 초기화
+		//num1 변수의 값이 양수일 때 "양수!", "음수!" 출력
+		
+		
+		var num1 = -100;
+		document.write("<br>"+(num1 > 0? "양수!":"음수!")+"<br>");
+		
+		//num1값이 정수인지를 판단.(양의 정수, 음의 정수, 0)
+		
+		//document.write(num1 < 0 || num == 0? "0또는 음의정수":"양의정수");
+		
+		document.write( (num1>0)? "양수":(num1<0? "음수":"0"));
+		
+		
+		// Q. 바나나179개
+		//    한 박스에 5개씩 포장 할 때 필요한 상자의 갯수는?
+		
+			var banana = 181;
+			var oneBox = 5;
+			var allBoxes = Math.floor((banana/oneBox));
+				
+			//(banana%oneBox < 5)? allBoxes+1; : allBoxes;
+		document.write("필요한 상자의 갯수 : "+((banana%oneBox < 5)? allBoxes+1 : allBoxes)+"개");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</head>
+<body>
+ <h1>WebContent/js1/Test3.html</h1>
+	
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>document 객체</title>
+	<script type="text/javascript">
+		//window.document 객체
+		//window 객체는 생략
+		
+		//속성
+		//title, location, bgColor,fgColor, 
+		
+		function fun1() {
+			alert("title : " + window.document.title);
+			alert("location : " + document.location);
+			alert("bgColor : " + document.bgColor);
+			alert("fgColor : " + document.fgColor);
+		}
+		
+		function fun2() {
+			//window.document.title = "ITWILL";
+			window.document.title = prompt('변경할 title을 입력하세요', '');
+		}
+		
+		function fun3() {
+			window.document.bgColor = prompt('변경할 배경색은?');
+			window.document.fgColor = prompt('변경할 폰트색은?');
+		}
+		
+		
+	   function fun4(color) {
+		   window.document.bgColor = color;
+	   }
+		
+		/////////////////////////////////
+		// location 객체 : 브라우저 주소창에 해당하는 url의 정보, 동작을 수행가능객체
+		
+		//location.href = url; //페이지 이동
+				
+		//속성 : href, protocal, host, hostname, port
+		
+		function fun5() {
+			alert("href : "+location.href);
+			alert("protocol : "+location.protocol);
+			alert("host : "+location.host);
+			alert("hostname :"+location.hostname);
+			alert("port : "+location.port);
+		}
+		
+		
+	   var arr = [".com",".net", ".co.kr", "or.kr"];
+		function fun6(address) {
+			location.href="http://www."+address+".com";
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</head>
+<body>
+	<h1>WebContent/js2/Test8.html</h1>
+	
+	<h2>document 객체</h2>
+	
+	<input type="button" value="document 속성" onclick="fun1();"> <br>
+	
+	<!-- 버튼 생성, 속성정보를 변경하는 버튼(타이틀 정보 변경) -->
+	
+	<input type="button" value="title 바꾸기" onclick="fun2();">
+	
+	<!-- 버튼 생성, 속성정보를 변경하는 버튼(배경색, 글자색 변경) -->
+	
+	<input type="button" value="색상 바꾸기" onclick="fun3();"> <br>
+	
+	<hr>
+	
+	<input type="radio" name="col" onclick="fun4('ORANGE');"> ORANGE
+	<input type="radio" name="col" onclick="fun4('PURPLE');"> PURPLE
+	<input type="radio" name="col" onclick="fun4('PINK');"> PINK
+	
+	<hr>
+	<h2>location 객체</h2>
+	
+	<input type="button" value="location 객체 속성정보" onclick="fun5();"> <br>
+	
+	<!-- 버튼 생성 : 클릭이벤트 발생 시 www.naver.com 페이지 이동 -->
+	
+	<input type="button" value="location 이동" onclick="fun6('naver');">
+	
+	<input type="button" value="location 객체 속성변경" onclick="location.href='http://www.naver.com';">
+	
+	
+	<!-- 새로고침 메서드 location.reload();  -->
+	<input type="button" value="location 객체 메서드" onclick="location.reload();">
+	
+	
+	<!-- replace메서드로 페이지가 넘어오면 뒤로가기가 불가능  -->
+	<input type="button" value="location 객체 메서드" onclick="location.replace('http://www.naver.com');">
+	
+	<hr>
+	
+	<h2>history 객체</h2>
+	<!--  
+	사용자가 방문한 사이트(페이지) 중에서 이전에 방문한 기록들을 다시 사용
+	-->
+	
+	
+	<a href="Test8_1.html">페이지 이동(하이퍼링크)</a>
+	
+	
+	
+</body>
+</html>

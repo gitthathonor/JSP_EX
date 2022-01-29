@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	//문자 객체(String) : 데이터를 배열처럼 사용
+	
+	//H || E || L || L || O
+	//0    1    2    3    4
+	
+	//문자 객체 생성 = "Hello";
+	var str = "Hellgggo"; //문자 상수
+	var str1 = new String("Hello"); //문자 객체
+	
+	//stack과 heap
+	
+	//String 객체 - 속성/동작
+	
+	document.write("속성 : " + str.length); //변수
+	
+	document.write("<hr>");	
+	//문자객체의 모양을 꾸미는 동작
+	document.write(str.bold());//함수(메서드)
+	document.write("<hr>");
+	document.write(str.italics());
+	document.write("<hr>");
+	document.write(str.fontcolor("blue"));
+	document.write("<hr>");
+	document.write(str.fontsize(15));
+	document.write("<hr>");
+	document.write(str.fontcolor("red").fontsize(15));
+	
+	
+	document.write("<hr>");
+	//문자 데이터 활용하는 동작
+	//문자'e' 출력
+	
+	document.write(str.charAt(1));
+	
+	//str변수 안에 'g'가 있는지 없는지 체크하시오
+	document.write("<hr>");
+	var sum = 0;
+	
+	for(var i in str) {
+		if(str.charAt(i)=='g') {
+			sum += 1;
+		}
+	}
+	if(sum != 0) {
+		document.write("g의 갯수는 : " + sum);
+	} else {
+		document.write("g의 갯수는 0개입니다.");
+	}
+	
+	
+	document.write("<hr>");
+	//indexOf(문자), lastIndex(문자)
+	//indexOf : 왼쪽에서 오른쪽으로 검색하다가 만나는 가장 첫글자의 위치정보 리턴
+	//lastIndexOf : 오른쪽에서 왼쪽으로 검색하다가 만나느 가장 첫글자의 위치정보 리턴
+	// => 문자가 있으면 문자의 위치(인덱스)를 리턴, 없을 경우 -1 리턴
+	
+	//str = Hellgggo
+	
+	//document.write(str.indexOf('l')); //2
+	//document.write(str.indexOf('f'));
+	
+	document.write(str.lastIndexOf('l')); //3
+	
+	document.write("<hr>");
+	//문자열 짜르기
+	//substring(), slice(), substr()
+	
+	document.write("str : " + str + "<br>");
+	//document.write(str.substring(3)); //인덱스~끝까지 문자 자르기
+	//document.write(str.substring(3,5)); //시작 인덱스~끝 인덱스-1 까지 문자 자르기
+	//document.write(str.slice(3,5)); //시작 인덱스~끝 인덱스-1 까지 문자 자르기
+	document.write(str.substr(3,5));//시작 인덱스부터 , 개수를 가져온다.
+	
+	//prompt 사용해서 사용자의 주민등록번호를 입력
+	// => 이 사람의 성별을 판ㄴ단
+	//[900101-1231231] 1, 3 - 남 / 2, 4 - 여
+	
+	//내 풀이
+	/* document.write("<hr>");
+	
+	var personID = prompt("주민등록번호를 입력하세요", "");
+	
+	
+	
+	if((Number)(personID.substring(7,8))%2==0) {
+		document.write("여자입니다.");
+	} else {
+		document.write("남자입니다.");
+	}  */
+	
+	
+	//규태 강사님 풀이
+	/* var jumin = prompt("주민번호를 입력하세요!");
+	alert("주민번호 : " + jumin); */
+	
+	//7번 인덱스의 값이 1,3/2,4 구분
+	/* var genderNumber = jumin.charAt(7);
+	alert("성별 번호 : " + genderNumber);
+	
+	if(genderNumber == 1 || gendrNumber == 3) {
+		alert("남!");
+	} else if (genderNumber == 2 || genderNumber == 4) {
+		alert("여!");
+	} else {
+		alert("잘못된 주민번호입니다.");
+	} */
+	
+	document.write("<hr>");
+	//전화번호를 입력받아서 출력
+	//010-1234-4567 => 010-****-4567
+	
+	/* var phoneNum = prompt("전화번호를 입력하세요");
+	alert("입력전화번호 010-****-" + (phoneNum.substring(9)));
+	
+	alert("입력전화번호 : " + phoneNum.substr(0,3) + "-****-" + (phoneNum.substring(9))); */
+	
+	 
+	//회원가입시 이메일 입력 = > 사용가능한 이메일인지를 체크
+	//"jgt8731@itwillbs.co.kr"
+	//"itwill@naver.com"
+	//"itwill@google.co.kr"
+	// 1) 입력된 데이터 안에 '@' 문자가 포함되어있는지 체크
+	// 2) [".co.kr", ".com", ".net", ".or.kr", ".go.kr"] 주소 체크
+	
+	
+	
+	//1.이메일 입력받기 prompt
+	var checkEmail = prompt("이메일을 입력하세요~");
+	//2.입력된 이메일에 @가 있는지 없는지 체크
+	
+	var urlArr = [".co.kr", ".com", ".net", ".or.kr", ".go.kr"];
+	if(checkEmail.indexOf('@') != -1) { //checkEmail변수값에 @문자가 있는지 체크
+	//if(checkEmail.indexOf('@')>5) { //동일한 로직도 다양한 형태로 바꾸어서 풀어보는 것이 중요하다.
+		//@ 있는 경우
+		//3.[]주소로 포함되어있는지 체크
+		for(var i=0; i<urlArr.length; i++) {
+			if(checkEmail.indexOf(urlArr[i]) != -1) {
+				//[특정주소] 있는 경우
+				alert("정상 이메일 입니다. : " + checkEmail);
+			}
+		}
+		
+	} else {
+		//@ 없는 경우
+		alert("올바른 이메일주소를 입력해주세요~!");
+	}
+	
+	//4.2,3번 동작 중 하나라도 만족하지 못한다면 정상적인 이메일이 아님
+	//5. 둘 다 만족하다면 정상적인 이메일 입력!
+	
+	regexp = new RegExp("pattern", "flags");
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</script>
+</head>
+<body>
+	<h1>WebContent/js2/Test5.html</h1>
+</body>
+</html>
